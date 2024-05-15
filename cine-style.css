@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body{
+    background-color: #1E1E1E;
+}
 .header {
     display: flex;
     height: 120px;
@@ -42,4 +44,38 @@
 
 .navbar a:hover {
     font-size: 105%;
+}
+.peliculas{
+    margin-top: 80px;
+    padding-left: 127px;
+    padding-right: 80px;
+    height: 300px;
+    color: #FFFFFF;
+}
+
+.footer{
+    display: flex;
+    height: 120px;
+    background-color: #961B1B;
+    color: #FFFFFF;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.footer i{
+    margin-left: 10px;
+}
+.social li{
+    display: inline-block;
+}
+.social a{
+    text-decoration: none;
+}
+
+.logo{
+    display: flex;
+}
+.logo div{
+   justify-content: flex-end; 
+   align-self: center;
 }
