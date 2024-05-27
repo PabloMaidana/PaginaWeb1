@@ -53,6 +53,68 @@ body{
     color: #FFFFFF;
 }
 
+.carrousel-background{
+    background-color:#1E1E1E;
+    margin-top: 20px;
+    height: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.carrousel-background button{
+    background-color: #961B1B;
+    color: #FFFFFF;
+    height: 50px;
+    width: 50px;
+    font-size: 25px;
+    border: none;
+    border-radius: 2px;
+}
+
+.carrousel-background button:hover {
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+      
+}
+
+.carrousel-background img{
+    height: 220px;
+    width: 150px;
+}
+.carrousel-js{
+    width: 900px;
+    height: 220px;
+    overflow: hidden;
+}
+.carrousel-js ul{
+    display: flex;
+    animation-name: nada;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    width: 100%;
+    position: relative;
+} 
+.carrousel-js li{
+    list-style: none;
+}
+
+#eImg0, #pImg0{
+    position: absolute;
+    left: -16.7%;
+}
+
+@keyframes siguiente {
+    0%{margin-left: 0;} 
+    100%{margin-left:-16.7%}
+}
+
+@keyframes anterior {
+    0%{margin-left: 0;}
+    100%{margin-left: 16.7%;}
+}
+
 .footer{
     display: flex;
     height: 120px;
@@ -80,3 +142,4 @@ body{
    justify-content: flex-end; 
    align-self: center;
 }
+
