@@ -109,11 +109,7 @@ function moverIzqProx(){
             if(posProxPrimero != 2 || posProxPosterior != 8){
                 posProxPosterior--;
             }
-        }  
-        console.log("Izquierda")
-        console.log("Primero: "+posProxPrimero);
-        console.log("Posterior: "+posProxPosterior);
-        console.log("Anterior: "+posProxAnterior)    
+        }      
         setTimeout(cargarImagenesProximamente, 2000);   
 }
 //Función Mover Derecha Proximamente
@@ -128,10 +124,6 @@ function moverDerProx(){
             proxDer.disabled = true;
         }
     posProxAnterior = aux;
-    console.log("Derecha");
-    console.log("Primero: "+posProxPrimero);
-    console.log("Posterior: "+posProxPosterior);
-    console.log("Anterior: "+posProxAnterior)
     setTimeout(cargarImagenesProximamente, 2000);
 }
 //Función Mover Izquierda Estrenos
