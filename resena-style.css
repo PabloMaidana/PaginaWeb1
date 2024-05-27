@@ -1,0 +1,122 @@
+body{
+    background-color: #1E1E1E;
+    margin: 0;
+}
+
+/* ----------   START HEADER   ---------- */
+
+.header {
+    display: flex;
+    height: 120px;
+    width: 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-color: #961B1B;
+    color: #FFFFFF;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header h1{
+    margin-right: auto;
+}
+
+.header i{
+    margin-left: 20px;
+} 
+.navbar {
+    display: flex;
+    height: 40px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: #591212;
+}
+
+.navbar a{
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  margin: 20px;
+}
+
+.navbar a:hover {
+    font-size: 105%;
+}
+
+/* ----------  END HEADER   ---------- */
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.contenido{
+    margin: 10px;
+    display: flex;
+    width: 900px;
+    flex-direction: column;
+}
+
+.reseña-contenedor{
+    display: flex;
+}
+
+.reseñaSinopsis{
+    padding-left: 100px;
+}
+
+.sinopsis p{
+    text-align: justify;
+    text-justify: inter-word;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif ;
+}
+
+.reseña p{
+    text-align: justify;
+    text-justify: inter-word;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif ;
+}
+
+h3{
+    color:white;
+    font-family: Arial, Helvetica, sans-serif ;
+}
+
+span{
+    color:yellow;
+}
+
+/* ----------  START FOOTER   ---------- */
+
+.footer{
+    display: flex;
+    height: 120px;
+    margin-top: 80px;
+    background-color: #961B1B;
+    color: #FFFFFF;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.footer i{
+    margin-left: 10px;
+}
+.social li{
+    display: inline-block;
+}
+.social a{
+    text-decoration: none;
+}
+
+.logo{
+    display: flex;
+}
+.logo div{
+   justify-content: flex-end; 
+   align-self: center;
+}
+
+/* ----------  END FOOTER   ---------- */
