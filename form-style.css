@@ -2,9 +2,10 @@ body{
     display: flex;
     flex-direction: column;
     margin: 0;
+    background-color: #1E1E1E;
 }
 
-/* ----------   HEADER   ---------- */
+/* ----------   START HEADER   ---------- */
 
 .header {
     display: flex;
@@ -46,8 +47,11 @@ body{
     font-size: 105%;
 }
 
-/* ----------   HEADER   ---------- */
+/* ----------  END HEADER   ---------- */
 
+p, h3,label,td{
+    color: white;
+}
 
 .container{
     display: flex;
@@ -62,14 +66,16 @@ body{
 }
 
 .tabla{
-    
     width: 24.9%;
     padding-top: 80px;
     padding-left: 31px;
 }
 
+.clickable{
+    cursor: pointer; 
+}
+
 #tablaAsientos td{
-    cursor: pointer;
     text-align: center;    
 }
 
@@ -77,6 +83,10 @@ body{
     padding-left: 50px;
     padding-top: 50px;
     width: 51%;
+}
+
+.frm > div{
+    padding-top: 15px;  
 }
 
 .fechas{
@@ -94,9 +104,14 @@ body{
 .fechas div{
     padding-left: 10px;
     padding-right: 10px;
-    border-style:solid;
+    border-style:  solid;
     border-radius: 6px;
     cursor: pointer;
+    background-color: gray;
+}
+
+.fechas div p{
+    color: #1E1E1E;
 }
 
 .horas div{
@@ -105,13 +120,14 @@ body{
     border-style:solid;
     border-radius: 6px;
     cursor: pointer;
+    background-color: gray;
 }
 
-.fechaActiva{
-    border-color: red;
+.horas div p{
+    color: #1E1E1E;
 }
 
-.horaActiva{
+.fechaHoraActiva{
     border-color: red;
 }
 
@@ -119,11 +135,33 @@ body{
     width: 200px;
 }
 
-.asientoActivo{
+.verde{
     color: green;
 }
 
-/* ----------   FOOTER   ---------- */
+.blanco{
+    color: #FFFFFF;
+}
+
+.rojo{
+    color: red;
+}
+
+.amarillo{
+    color: yellow;
+}
+
+.bordeRojo{
+    border-radius: 2px;
+    border:solid red;
+}
+
+.bordeAmarillo{
+    border-radius: 2px;
+    border:solid yellow;
+}
+
+/* ----------  START FOOTER   ---------- */
 
 .footer{
     display: flex;
@@ -153,4 +191,4 @@ body{
    align-self: center;
 }
 
-/* ----------   FOOTER   ---------- */
+/* ----------  END FOOTER   ---------- */
