@@ -19,7 +19,7 @@ proximamente[3] = "imagenes/9111-mi-villano-favorito-4.jpg";
 proximamente[4] = "imagenes/9506-observados.jpg";
 proximamente[5] = "imagenes/9632-complices-del-engano.jpg";
 proximamente[6] = "imagenes/9568-bad-boys-hasta-la-muerte.jpg";
-proximamente[7] = "imagenes/9618-profesion-peligro.jpg";
+proximamente[7] = "imagenes/9701-inmaculada.jpg";
 proximamente[8] = "imagenes/9783-la-inocencia.jpg";
 
 //Recuperar listas:
