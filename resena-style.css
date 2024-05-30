@@ -123,5 +123,8 @@ span{
    justify-content: flex-end; 
    align-self: center;
 }
-
+.logo h2{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 /* ----------  END FOOTER   ---------- */
