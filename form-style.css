@@ -80,6 +80,11 @@ p, h3,label,td{
     padding-top: 65px;
 }
 
+.imagen{
+    padding-top: 55px;
+    width: 240px;   
+}
+
 .clickable{
     cursor: pointer; 
 }

@@ -262,7 +262,7 @@
             function mostrarPelicula(){
                 divPelicula.querySelectorAll("img").forEach(img => img.remove());
                 const imgPeli = document.createElement("img");
-                imgPeli.classList.add("peliculaImagen");
+                imgPeli.classList.add("imagen");
                 imgPeli.src = peliculas.get(selPelicula.value);
                 divPelicula.appendChild(imgPeli);
             }
