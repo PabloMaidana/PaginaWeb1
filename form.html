@@ -160,13 +160,13 @@
             </div>
             <div class="formulario">
                 <form class="frm" onsubmit="return validar()">
-                    <p>Elija la fecha:</p>
+                    <h3>Elija la fecha:</h3>
                     <div class="fechas">
                         <div id="fechaHoy"></div>
                         <div id="fechaMan"></div>
                         <div id="fechaPasado"></p></div>
                     </div>
-                    <p>Elija la Hora:</p>
+                    <h3>Elija la Hora:</h3>
                     <div class="horas">
                         <div><p>8:00</p></div>
                         <div><p>9:00</p></div>
@@ -198,11 +198,11 @@
                     </div>
                     <div><button type="submit">Reservar entrada</button></div>              
                 </form>
-                <div class="salida" id="salida">
-
-                </div>
+                <div class="salida" id="salida"></div>
             </div>
-            <div class="peliculaImagen">  
+            <div class="peliculaImagen" id="peliculaImagen">
+                <label for="selPelicula">Seleccionar pelicula:</label>
+                <select name="selPelicula" id="selPelicula"></select>  
             </div>
         </div>        
     </div>
@@ -225,6 +225,19 @@
     </footer>
 
     <script>
+            // Peliculas para elegir
+            const peliculas = new Map();
+            peliculas.set("El planeta de los simios","imagenes/8633-el-planeta-de-los-simios-nuevo-reino.jpg");
+            peliculas.set("Amigos imaginarios","imagenes/9759-amigos-imaginarios.jpg");
+            peliculas.set("Garfield fuera de casa","imagenes/9567-garfield-fuera-de-casa.jpg");
+            peliculas.set("Kung fu panda 4","imagenes/4450-kung-fu-panda-4.jpg");
+            peliculas.set("Desafiantes","imagenes/9401-desafiantes.jpg");
+            peliculas.set("Profesion peligro","imagenes/9618-profesion-peligro.jpg");
+            peliculas.set("Tarot de la muerte","imagenes/9715-tarot-de-la-muerte.jpg");
+            peliculas.set("Monkey man el despertar de la bestia","imagenes/9735-monkey-man-el-despertar-de-la-bestia.jpg");
+            peliculas.set("Lo mejor esta por venir","imagenes/9754-lo-mejor-esta-por-venir.jpg");
+            peliculas.set("Godzilla y Kong el nuevo imperio","imagenes/9502-godzilla-y-kong-el-nuevo-imperio.jpg");
+
             // Formulario
             let txtNombre = document.getElementById("txtNombre");
             let txtApellido = document.getElementById("txtApellido");
@@ -236,12 +249,33 @@
             let horaAct = "";
             const fechas = document.querySelectorAll(".fechas div");
             const horas = document.querySelectorAll(".horas div");
+            let selPelicula = document.getElementById("selPelicula");
+            let divPelicula = document.getElementById("peliculaImagen");
 
+            // Añadir peliculas a select
+            peliculas.forEach((clave,valor) => {
+               const optElem = document.createElement("option");
+               optElem.textContent = valor;
+               selPelicula.appendChild(optElem);
+            });
+
+            // Mostrar pelicula
+            function mostrarPelicula(){
+                divPelicula.querySelectorAll("img").forEach(img => img.remove());
+                const imgPeli = document.createElement("img");
+                imgPeli.classList.add("peliculaImagen");
+                imgPeli.src = peliculas.get(selPelicula.value);
+                divPelicula.appendChild(imgPeli);
+            }
+            
+            selPelicula.selectIndex = 0;
+            mostrarPelicula();
+            selPelicula.addEventListener("change", mostrarPelicula);
 
             // Asignar fecha actual a botones
             function formatearFecha(fecha) {
-            let dia = String(fecha.getDate()).padStart(2, '0');
-            let mes = String(fecha.getMonth() + 1).padStart(2, '0'); 
+            let dia = String(fecha.getDate()).padStart(2, "0");
+            let mes = String(fecha.getMonth() + 1).padStart(2, "0"); 
             return `${dia}/${mes}`;
             }
 
@@ -270,8 +304,8 @@
 
             // Tabla asientos
             const tabla = document.getElementById("tabla")
-            const celdas = document.querySelectorAll('#tablaAsientos td');
-            const filas = ['a','b','c','d','e','f','g','h','i'];
+            const celdas = document.querySelectorAll("#tablaAsientos td");
+            const filas = ["a","b","c","d","e","f","g","h","i"];
             const columnas = [1,2,3,4,5,6,7,8,9,10];
 
             // Asignar id a cada celda
@@ -281,7 +315,7 @@
                     if(i>0 && j >0){
                         const celda = celdas[index];
                         celdas[index].id = `${filas[i-1]}${columnas[j-1]}`;
-                        celda.classList.add('blanco');
+                        celda.classList.add("blanco");
                     }      
                     index ++;     
                 }
@@ -289,14 +323,14 @@
 
             // Evento para asignar clase color verde a cada asiento
             celdas.forEach(celda => {
-                if (celda.classList.contains('clickable')){
-                    celda.addEventListener('click',() => {
-                        if (celda.classList.contains('verde')) {
-                            celda.classList.remove('verde');
-                            celda.classList.add('blanco');
+                if (celda.classList.contains("clickable")){
+                    celda.addEventListener("click",() => {
+                        if (celda.classList.contains("verde")) {
+                            celda.classList.remove("verde");
+                            celda.classList.add("blanco");
                         } else {
-                            celda.classList.add('verde');
-                            celda.classList.remove('blanco');
+                            celda.classList.add("verde");
+                            celda.classList.remove("blanco");
                         }
                     });
                 }  
@@ -351,33 +385,33 @@
                 }
 
                 // Comprobar patterns
-                if(!regex_string.test(nombre)){
+                if(!regex_string.test(nombre) && !txtNombre.classList.contains("bordeAmarillo")){
                     txtNombre.classList.add("bordeRojo");
                 }else{
                     txtNombre.classList.remove("bordeRojo");
                 }
-                if(!regex_string.test(apellido)){
+                if(!regex_string.test(apellido) && !txtApellido.classList.contains("bordeAmarillo")){
                     txtApellido.classList.add("bordeRojo");
                 }else{
                     txtApellido.classList.remove("bordeRojo");
                 }
-                if(!regex_num.test(dni)){
+                if(!regex_num.test(dni) && !txtDni.classList.contains("bordeAmarillo")){
                     txtDni.classList.add("bordeRojo");
                 }else{
                     txtDni.classList.remove("bordeRojo");
                 }
-                if(!regex_num.test(tarjeta)){
+                if(!regex_num.test(tarjeta) && !txtTarjeta.classList.contains("bordeAmarillo")){
                     txtTarjeta.classList.add("bordeRojo");
                 }else{
                     txtTarjeta.classList.remove("bordeRojo");
                 }
 
-
+                // Elementos
                 const celdasVerdes = Array.from(celdas).filter(celda => celda.classList.contains("verde"));
                 const idVerdes = celdasVerdes.map(celda => celda.id);
 
                 const celdaElem = document.createElement("p")  
-                celdaElem.textContent = `Asientos Reservados: ${idVerdes.join(',')}`;
+                celdaElem.textContent = `Asientos Reservados: ${idVerdes.join(",")}`;
 
                 const nombreApellidoElem = document.createElement("p");
                 nombreApellidoElem.textContent = `Nombre y Apellido: ${nombre}  ${apellido}`;
@@ -394,9 +428,13 @@
                 const salidaDiv = document.getElementById("salida");
                 salidaDiv.innerHTML = "";
 
+                // Variables de control de validacion
                 let camposInvalidos = false;
                 let camposIncompletos = false;
+                let asientosVacios = false;
+                let asientosLim = false;
 
+                // Elemento que indica que hay campos vacios
                 if(txtNombre.classList.contains("bordeAmarillo") || txtApellido.classList.contains("bordeAmarillo") || txtDni.classList.contains("bordeAmarillo") || txtTarjeta.classList.contains("bordeAmarillo")){
                     const camposIncompletosElem = document.createElement("p");
                     camposIncompletosElem.textContent = `Hay campos incompletos`;
@@ -407,6 +445,7 @@
                     camposIncompletos = false;
                 }
                 
+                // Elemento que indica que hay campos invalidos
                 if(txtNombre.classList.contains("bordeRojo") || txtApellido.classList.contains("bordeRojo") || txtDni.classList.contains("bordeRojo") || txtTarjeta.classList.contains("bordeRojo")){
                     const camposInvalidosElem = document.createElement("p");
                     camposInvalidosElem.textContent = `Hay campos invalidos`;
@@ -416,7 +455,31 @@
                 }else{
                     camposInvalidos = false;
                 }
-                if(camposInvalidos == false && camposIncompletos == false){
+
+                // Elemento que indica que no se reservo ningun asiento
+                if(celdasVerdes.length == 0){
+                    const asientosVaciosElem = document.createElement("p");
+                    asientosVaciosElem.textContent = `No se ha reservado ningun asiento`;
+                    asientosVaciosElem.classList.add("verde");
+                    salidaDiv.appendChild(asientosVaciosElem);
+                    asientosVacios = true;
+                }else{
+                    asientosVacios = false;
+                }
+                
+                // Elemento que indica que se ha superado el limite de reserva de asientos
+                if(celdasVerdes.length > 5){
+                    const asientosLimElem = document.createElement("p");
+                    asientosLimElem.textContent = `Se ha superado el numero de reserva de asientos de 5`;
+                    asientosLimElem.classList.add("verde");
+                    salidaDiv.appendChild(asientosLimElem);
+                    asientosLim = true;
+                }else{
+                    asientosLim = false;
+                }
+
+                // Mostrar datos ingresados
+                if(!camposInvalidos && !camposIncompletos && !asientosVacios && !asientosLim){
                     salidaDiv.appendChild(celdaElem);
                     salidaDiv.appendChild(dniElem);
                     salidaDiv.appendChild(nombreApellidoElem);
